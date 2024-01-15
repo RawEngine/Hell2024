@@ -1,6 +1,5 @@
 #pragma once
 
-#include "../Common.h"
 #include "../Renderer/Shader.h"
 
 class MuzzleFlash

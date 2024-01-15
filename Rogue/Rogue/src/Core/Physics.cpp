@@ -1,7 +1,5 @@
 #include "Physics.h"
-#include <vector>
-#include "iostream"
-#include "../Common.h"
+
 #include "../Util.hpp"
 
 /*
@@ -414,6 +412,6 @@ void Physics::ClearCollisionList() {
     _collisionReports.clear();
 }
 
-physx::PxRigidActor* Physics::GetGroundPlane() {
+PxRigidActor* Physics::GetGroundPlane() {
     return _groundPlane;
 }

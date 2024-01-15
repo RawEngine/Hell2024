@@ -1,6 +1,4 @@
 #pragma once
-#include "../Common.h"
-#include "../Core/Physics.h"
 
 struct BulletCasing {
 

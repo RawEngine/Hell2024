@@ -1,11 +1,10 @@
 #pragma once
-#include "../Common.h"
+
 #include "GameObject.h"
 #include "AnimatedGameObject.h"
 #include "Door.h"
 #include "Window.h"
 #include "Player.h"
-#include "Physics.h"
 #include "../Effects/BulletCasing.h"
 #include "../Effects/Decal.h"
 

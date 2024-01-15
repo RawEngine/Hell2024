@@ -1,5 +1,4 @@
 #pragma once
-#include "../Common.h"
 
 namespace GL {
 	void Init(int width, int height);

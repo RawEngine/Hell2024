@@ -1,6 +1,6 @@
 #pragma once
+
 #include "Texture3D.h"
-#include "../Common.h"
 #include "../Core/Player.h"
 
 namespace Renderer {

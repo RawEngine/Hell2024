@@ -1,7 +1,19 @@
 #pragma once
+
 #include "AssetManager.h"
 #include "Audio.hpp"
-#include "Physics.h"
+
+// Forward declarations.
+struct PhysicsFilterData;
+
+namespace physx
+{
+	class PxShape;
+	class PxRigidBody;
+	class PxRigidStatic;
+}
+
+using namespace physx;
 
 enum class OpenState { NONE, CLOSED, CLOSING, OPEN, OPENING };
 enum class OpenAxis { NONE, TRANSLATE_X, TRANSLATE_Y, TRANSLATE_Z, ROTATION_POS_X, ROTATION_POS_Y, ROTATION_POS_Z, ROTATION_NEG_X, ROTATION_NEG_Y, ROTATION_NEG_Z };
@@ -50,10 +62,11 @@ private:
 	//PxRigidDynamic* _rigidBody = nullptr;
 	ModelMatrixMode _modelMatrixMode = ModelMatrixMode::GAME_TRANSFORM;
 
-	PxRigidBody* _collisionBody = NULL;
 	std::vector<PxShape*> _collisionShapes;
-	PxRigidStatic* _raycastBody = NULL;
-	PxShape* _raycastShape = NULL;
+
+	PxShape* _raycastShape = nullptr;
+	PxRigidBody* _collisionBody = nullptr;
+	PxRigidStatic* _raycastBody = nullptr;
 
 	struct AudioEffects {
 		AudioEffectInfo onOpen;

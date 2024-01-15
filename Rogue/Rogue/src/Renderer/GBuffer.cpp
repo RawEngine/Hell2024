@@ -1,5 +1,4 @@
 #include "GBuffer.h"
-#include "../Common.h"
 
 void GBuffer::Configure(int width, int height) {
 

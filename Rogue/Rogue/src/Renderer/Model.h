@@ -1,7 +1,14 @@
 #pragma once
-#include "../Common.h"
+
 #include "Mesh.h"
-#include "../Core/Physics.h"
+
+// Forward declarations.
+namespace physx
+{
+	class PxTriangleMesh;
+}
+
+using namespace physx;
 
 struct BoundingBox {
 	glm::vec3 size;
@@ -21,7 +28,7 @@ public:
 	std::vector<Triangle> _triangles;;
 	//std::vector<int> _meshIndices;
 	std::vector<std::string> _meshNames;
-	PxTriangleMesh* _triangleMesh;
+	PxTriangleMesh* _triangleMesh = nullptr;
 
 public:
 	std::string _name;

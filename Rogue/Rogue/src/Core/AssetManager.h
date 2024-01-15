@@ -1,9 +1,6 @@
 #pragma once
 #include "../Renderer/Texture.h"
 #include "../Renderer/Model.h"
-#include <string>
-#include <vector>
-#include "../Common.h"
 #include "Animation/SkinnedModel.h"
 
 namespace AssetManager {

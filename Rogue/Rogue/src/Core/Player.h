@@ -1,7 +1,13 @@
 #pragma once
-#include "../Common.h"
+
+// Forward declarations.
+namespace physx
+{
+	class PxController;
+}
+using namespace physx;
+
 #include "AnimatedGameObject.h"
-#include "Physics.h"
 
 #define GLOCK_CLIP_SIZE 12
 #define GLOCK_MAX_AMMO_SIZE 200
@@ -28,7 +34,7 @@ public:
 
 	//RayCastResult _cameraRayData;
 	AnimatedGameObject _characterModel;
-	PxController* _characterController = NULL;
+	PxController* _characterController = nullptr;
 	float _yVelocity = 0;
 
 	Inventory _inventory;

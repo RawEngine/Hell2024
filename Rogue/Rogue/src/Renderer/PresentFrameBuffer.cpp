@@ -1,5 +1,4 @@
 #include "PresentFrameBuffer.h"
-#include "../Common.h"
 
 void PresentFrameBuffer::Configure(int width, int height) {
 

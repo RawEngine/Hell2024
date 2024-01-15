@@ -1,7 +1,13 @@
 #pragma once
-#include "../Common.h"
-#include <vector>
-#include "../Core/Physics.h"
+
+// Forward declarations.
+namespace physx
+{
+	class PxTriangleMesh;
+	class PxConvexMesh;
+}
+
+using namespace physx;
 
 class Mesh {
 
@@ -22,6 +28,6 @@ class Mesh {
 		std::string _name;
 		std::vector<Vertex> vertices;
 		std::vector<unsigned int> indices;
-		PxTriangleMesh* _triangleMesh = NULL;
-		PxConvexMesh* _convexMesh = NULL;
+		PxTriangleMesh* _triangleMesh = nullptr;
+		PxConvexMesh* _convexMesh = nullptr;
 };

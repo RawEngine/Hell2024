@@ -1,7 +1,4 @@
 #pragma once
-#include <vector>
-//#include <glm/glm.hpp>
-#include "../Common.h"
 
 #define SHADOW_MAP_SIZE 2048
 #define SHADOW_NEAR_PLANE 0.1f

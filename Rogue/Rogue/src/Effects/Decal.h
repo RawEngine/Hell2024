@@ -1,6 +1,7 @@
 #pragma once
-#include "../Common.h"
-#include "../Core/Physics.h"
+
+// Forward declarations.
+namespace physx { class PxRigidBody; }
 
 struct Decal {
 
@@ -12,7 +13,7 @@ public:
     glm::vec3 localPosition;
     glm::vec3 localNormal;
     float randomRotation;
-    PxRigidBody* parent;
+    PxRigidBody* parent = nullptr;
     Type type;
 
     Decal();

@@ -1,16 +1,11 @@
-#include <fstream>
-#include <sstream>
-#include <iostream>
-#include <string>
-#include <vector>
-//#include <glm/glm.hpp>
-#include "Common.h"
+
 #include "glm/gtx/intersect.hpp"
 #include <random>
 #include <format>
-#include <filesystem>
+
 #include <assimp/matrix3x3.h>
 #include <assimp/matrix4x4.h>
+
 #include "Core/Physics.h"
 
 namespace Util {

@@ -1,6 +1,4 @@
 #pragma once
-#include "../../Common.h"
-#include <map>
 
 struct SQT {
     glm::quat rotation = glm::quat(1, 0, 0, 0);

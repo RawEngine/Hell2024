@@ -1,5 +1,4 @@
 #include "File.h"
-#include "../Common.h"
 #include "rapidjson/document.h"
 #include <rapidjson/filereadstream.h>
 #include <rapidjson/istreamwrapper.h>
@@ -7,11 +6,6 @@
 #include <rapidjson/stringbuffer.h>
 #include <rapidjson/ostreamwrapper.h>
 #include <rapidjson/prettywriter.h>
-#include <filesystem>
-#include <sstream> 
-#include <fstream>
-#include <string>
-#include <iostream>
 #include "../Core/Scene.h"
 #include "../Core/AssetManager.h"
 

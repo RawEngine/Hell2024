@@ -1,5 +1,4 @@
 #pragma once
-#include "../Common.h"
 
 #define WORLD_WIDTH MAP_WIDTH
 #define WORLD_DEPTH MAP_DEPTH

@@ -1,7 +1,6 @@
 #include "AssetManager.h"
-#include <vector>
 #include <iostream>
-#include "../Common.h"
+
 #include "../Util.hpp"
 #include "../Renderer/Model.h"
 #include "FbxImporter.h"

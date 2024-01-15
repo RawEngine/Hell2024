@@ -1,4 +1,6 @@
-#pragma once
+
+#include "../Core/Physics.h"
+
 #include "GameObject.h"
 #include "../Util.hpp"
 #include "Scene.h"

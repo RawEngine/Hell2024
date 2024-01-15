@@ -1,9 +1,6 @@
 
 #pragma once
 
-// TODO: Move to PCH.h (Precompiled header)
-#include <fstream>
-
 class Log
 {
 public:

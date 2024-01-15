@@ -1,7 +1,4 @@
 #pragma once
-#include "../Common.h"
-#include "Physics.h"
-
 
 struct Door {
     glm::vec3 position = glm::vec3(0);
