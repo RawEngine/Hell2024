@@ -10,6 +10,11 @@
 #include "Core/TextBlitter.h"
 #include "Core/Scene.h"
 #include "Core/Physics.h"
+#include "Core/Exception.h"
+#include "Core/Log.h"
+
+#include <filesystem>
+
 // Profiling stuff
 //#define TracyGpuCollect
 //#include "tracy/Tracy.hpp"
@@ -23,9 +28,20 @@ void ToggleFullscreen();
 void NextPlayer();
 void NextViewportMode();
 
+constexpr auto LogFileName      = L"Launcher.log";
+//constexpr auto ConfigFileName   = L"Launcher.ini"; // TODO
+
+Engine::Engine()
+    : _pathApplication(std::filesystem::current_path())
+{ }
+
+Engine::~Engine()
+{ }
+
 void Engine::Run() {
 
-    Init();
+    if (!Init())
+        return;
 
     double lastFrame = glfwGetTime();
     double thisFrame = lastFrame;
@@ -99,27 +115,46 @@ void Engine::Run() {
     return;
 }
 
-void Engine::Init() {
+bool Engine::Init() {
 
-    std::cout << "We are all alone on life's journey, held captive by the limitations of human consciousness.\n";
+    try
+    {
+        InitLogSystem();
 
-    GL::Init(1920 * 1.5f, 1080 * 1.5f);
-    Input::Init();
-    Physics::Init();
+        LOG_MESSAGE(Log::Channel::Main, "Application path: %s", _pathApplication.string().c_str());
+        LOG_MESSAGE(Log::Channel::Main, "We are all alone on life's journey, held captive by the limitations of human consciousness.");
 
-    Editor::Init();
-    Audio::Init();
-	AssetManager::LoadFont();
-    AssetManager::LoadEverythingElse();
+        GL::Init(1920 * 1.5f, 1080 * 1.5f);
+        Input::Init();
+        Physics::Init();
 
-    Scene::LoadMap("map.txt");
+        Editor::Init();
+        Audio::Init();
+        AssetManager::LoadFont();
+        AssetManager::LoadEverythingElse();
 
-    Renderer::Init();
-    Renderer::CreatePointCloudBuffer();
-    Renderer::CreateTriangleWorldVertexBuffer();
+        Scene::LoadMap("map.txt");
 
-    Scene::CreatePlayers();
+        Renderer::Init();
+        Renderer::CreatePointCloudBuffer();
+        Renderer::CreateTriangleWorldVertexBuffer();
 
+        Scene::CreatePlayers();
+    }
+    catch (const Exception& e)
+    {
+        if (_Log)
+            _Log->Write(Log::Channel::Main, Log::Level::Error, __LINE__, __FUNCTION__, e.GetText());
+
+        std::cout << "ERROR: " << e.GetText() << std::endl;
+        return false;
+    }
+
+    return true;
+}
+
+void Engine::InitLogSystem() {
+    _Log = std::make_unique<Log>(_pathApplication / LogFileName);
 }
 
 void Engine::LazyKeyPresses() {
